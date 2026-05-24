@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Horizon — The Wedding of Sophia & Julian</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* LUXURY OLIVE & FOREST SYSTEM COLORS (NO BEIGE/CREAM/SANDY TONES) */
+        :root {
+            --bg-deep-forest: #0E160D;   /* Darkest Evergreen shadow */
+            --bg-olive-velvet: #1C261B;  /* Deep rich olive canvas */
+            --olive-accent: #3A4C36;     /* Structured olive leaves */
+            --sage-glow: #637F5D;        /* Sunlit sage highlight */
+            --champagne-gold: #CDB17F;   /* Light metallic champagne gold */
+            --text-pure: #FFFFFF;        /* Crisp white */
+            --text-silver-sage: #CED6CC; /* Silvery green-tinted white */
+            
+            --font-luxury: 'Cinzel Decorative', serif;
+            --font-display: 'Cinzel', serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --transition-luxury: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* CUSTOM SMOOTH SCROLLBAR */
+        html {
+            scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-deep-forest);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--olive-accent);
+            border-radius: 4px;
+            border: 2px solid var(--bg-deep-forest);
+        }
+
+        /* GLOBAL RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--bg-deep-forest);
+            color: var(--text-pure);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* -------------------------------------------------------------
+           PREMIUM DYNAMIC CUSTOM CURSOR (DESKTOP INTERACTIVE ELEMENT)
+        ------------------------------------------------------------- */
+        #custom-cursor {
+            width: 8px;
+            height: 8px;
+            background-color: var(--champagne-gold);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+        #custom-cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(205, 177, 127, 0.4);
+            border-radius: 50%;
+            position: fixed;
+            top: -16px;
+            left: -16px;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        /* Cursor expansions on hoverable tags */
+        .hover-glow:hover ~ #custom-cursor-follower {
+            transform: scale(1.6);
+            background-color: rgba(99, 127, 93, 0.15);
+            border-color: var(--champagne-gold);
+        }
+
+        /* Disable custom cursor styling on touch/mobile screens for absolute usability */
+        @media (max-width: 1024px) {
+            * { cursor: auto !important; }
+            #custom-cursor, #custom-cursor-follower { display: none !important; }
+        }
+
+        /* AMBIENT BOTANICAL FALLING CANVAS */
+        #ambient-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* -------------------------------------------------------------
+           PREMIUM NAVIGATION BAR 
+        ------------------------------------------------------------- */
+        .premium-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: var(--transition-luxury);
+            background: linear-gradient(to bottom, rgba(14,22,13,0.95), transparent);
+        }
+        .premium-nav.scrolled {
+            padding: 20px 60px;
+            background: rgba(14, 22, 13, 0.98);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(99, 127, 93, 0.15);
+        }
+        .nav-logo {
+            font-family: var(--font-luxury);
+            font-size: 1.4rem;
+            letter-spacing: 4px;
+            color: var(--text-pure);
+            text-decoration: none;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+        .nav-link {
+            color: var(--text-silver-sage);
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            padding: 6px 0;
+            transition: var(--transition-luxury);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background-color: var(--champagne-gold);
+            transition: var(--transition-luxury);
+            transform: translateX(-50%);
+        }
+        .nav-link:hover {
+            color: var(--champagne-gold);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 1: HERO - CINEMATIC MOUSE PARALLAX & KEN BURNS ZOOM
+        ------------------------------------------------------------- */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at center, rgba(28,38,27,0.4) 0%, var(--bg-deep-forest) 90%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            width: 100%;
+            max-width: 1300px;
+            align-items: center;
+            z-index: 5;
+        }
+        .hero-text-container {
+            transform: translateY(30px);
+            opacity: 0;
+            animation: luxeFadeInUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .hero-tagline {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 7px;
+            color: var(--champagne-gold);
+            margin-bottom: 25px;
+        }
+        .hero-names {
+            font-family: var(--font-serif);
+            font-size: clamp(3.2rem, 5.5vw, 6rem);
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: var(--text-pure);
+        }
+        .hero-names span {
+            font-family: var(--font-luxury);
+            font-weight: 300;
+            font-size: clamp(2.5rem, 4.5vw, 5rem);
+            color: var(--champagne-gold);
+        }
+        .hero-details {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            letter-spacing: 4px;
+            margin-bottom: 45px;
+            color: var(--text-silver-sage);
+            border-left: 2px solid var(--champagne-gold);
+            padding-left: 20px;
+        }
+        
+        /* Interactive Parallax Frame for Hero Image */
+        .hero-image-frame {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            max-height: 550px;
+            border-radius: 350px 350px 0 0; /* Premium Archway Shape */
+            overflow: hidden;
+            box-shadow: 0 35px 70px rgba(0,0,0,0.65);
+            border: 2px solid rgba(205, 177, 127, 0.25);
+            opacity: 0;
+            transform: scale(0.9) translateY(40px);
+            animation: archwayReveal 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+        }
+        .hero-image {
+            width: 115%; /* Extra size to allow mouse parallax movement safely */
+            height: 115%;
+            object-fit: cover;
+            position: absolute;
+            top: -7.5%;
+            left: -7.5%;
+            opacity: 0;
+            transition: transform 0.4s ease-out; /* Smooth follow-on action */
+            animation: kenBurnsReveal 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.8s;
+        }
+        
+        @keyframes kenBurnsReveal {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(14,22,13,0.4) 0%, transparent 40%);
+            z-index: 2;
+        }
+
+        /* -------------------------------------------------------------
+           BUTTON ARCHITECTURES
+        ------------------------------------------------------------- */
+        .btn-luxury-outline {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: transparent;
+            color: var(--text-pure);
+            border: 1px solid var(--champagne-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-luxury);
+            z-index: 10;
+        }
+        .btn-luxury-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--champagne-gold);
+            z-index: -1;
+            transition: var(--transition-luxury);
+        }
+        .btn-luxury-outline:hover::before {
+            left: 0;
+        }
+        .btn-luxury-outline:hover {
+            color: var(--bg-deep-forest);
+            border-color: var(--champagne-gold);
+            box-shadow: 0 15px 35px rgba(205, 177, 127, 0.25);
+        }
+
+        /* -------------------------------------------------------------
+           REVEAL TRIGGER CLASS (SCROLL ANIMS)
+        ------------------------------------------------------------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 2: POETRY & EMOTIONAL INTENT
+        ------------------------------------------------------------- */
+        .narrative-section {
+            background-color: var(--bg-olive-velvet);
+            text-align: center;
+            padding: 150px 10%;
+            border-top: 1px solid rgba(99, 127, 93, 0.15);
+            border-bottom: 1px solid rgba(99, 127, 93, 0.15);
+            position: relative;
+        }
+        .narrative-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .narrative-crest {
+            font-size: 1.8rem;
+            color: var(--champagne-gold);
+            margin-bottom: 35px;
+            font-family: var(--font-luxury);
+        }
+        .narrative-poetry {
+            font-family: var(--font-serif);
+            font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text-pure);
+            margin-bottom: 40px;
+        }
+        .narrative-subtext {
+            font-size: 0.95rem;
+            color: var(--text-silver-sage);
+            letter-spacing: 2px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 3: EDITORIAL GRID WITH TIMELINE EVENTS
+        ------------------------------------------------------------- */
+        .chronology-section {
+            padding: 140px 10%;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--text-pure);
+        }
+        .section-title span {
+            color: var(--champagne-gold);
+            font-family: var(--font-luxury);
+        }
+        .section-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--sage-glow);
+            margin-top: 15px;
+        }
+        .section-separator {
+            width: 80px;
+            height: 1px;
+            background-color: var(--champagne-gold);
+            margin: 25px auto 0 auto;
+        }
+
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+            align-items: center;
+        }
+        .event-card {
+            background: rgba(28, 38, 27, 0.45);
+            border: 1px solid rgba(205, 177, 127, 0.15);
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            transition: var(--transition-luxury);
+        }
+        .event-card:hover {
+            border-color: var(--champagne-gold);
+            transform: translateY(-5px);
+            background: rgba(28, 38, 27, 0.75);
+        }
+        .event-time {
+            font-family: var(--font-display);
+            color: var(--champagne-gold);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed rgba(205, 177, 127, 0.3);
+            padding-bottom: 15px;
+        }
+        .event-title {
+            font-family: var(--font-serif);
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        .event-details {
+            color: var(--text-silver-sage);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Asymmetric Layout Formatting */
+        .cell-card-1 { grid-column: span 5; }
+        .cell-img-1 { grid-column: span 7; height: 420px; overflow: hidden; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(205, 177, 127, 0.15); }
+        .cell-img-2 { grid-column: span 6; height: 450px; overflow: hidden; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(205, 177, 127, 0.15); }
+        .cell-card-2 { grid-column: span 6; }
+        .cell-card-3 { grid-column: span 5; }
+        .cell-img-3 { grid-column: span 7; height: 420px; overflow: hidden; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(205, 177, 127, 0.15); }
+
+        .editorial-image-box {
+            position: relative;
+        }
+        .editorial-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        /* Hover Effect: Soft Image Ken Burns scale and slight gold vignette transition */
+        .editorial-image-box:hover img {
+            transform: scale(1.08);
+        }
+        .editorial-image-box::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(14,22,13,0.5));
+            pointer-events: none;
+            transition: var(--transition-luxury);
+        }
+        .editorial-image-box:hover::after {
+            background: linear-gradient(to bottom, rgba(205,177,127,0.1), rgba(14,22,13,0.7));
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 4: THE GALLERY OF MOMENTS (5 IMAGES + LIGHTBOX)
+        ------------------------------------------------------------- */
+        .gallery-section {
+            background-color: var(--bg-olive-velvet);
+            padding: 140px 10%;
+            border-top: 1px solid rgba(99, 127, 93, 0.15);
+            border-bottom: 1px solid rgba(99, 127, 93, 0.15);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1300px;
+            margin: 50px auto 0 auto;
+        }
+        .gallery-item {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+            border-radius: 4px;
+            border: 1px solid rgba(205, 177, 127, 0.15);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: var(--transition-luxury);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        /* Double Column Spanning for Visual Variety */
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+        .gallery-item.tall {
+            grid-row: span 2;
+            height: 785px;
+        }
+        
+        /* Interactive Gallery Overlay on Hover */
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(14, 22, 13, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition-luxury);
+            padding: 20px;
+        }
+        .gallery-overlay-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            color: var(--champagne-gold);
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: var(--transition-luxury);
+        }
+        .gallery-overlay-icon {
+            font-size: 1.2rem;
+            color: var(--text-pure);
+            transform: translateY(30px);
+            transition: var(--transition-luxury);
+        }
+        .gallery-item:hover {
+            border-color: var(--champagne-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-item:hover .gallery-overlay-title,
+        .gallery-item:hover .gallery-overlay-icon {
+            transform: translateY(0);
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 5: THE WEDDING PARTY (MAID OF HONOR & GROOMSMEN)
+        ------------------------------------------------------------- */
+        .party-section {
+            padding: 140px 10%;
+        }
+        .party-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 60px auto 0 auto;
+        }
+        .party-card {
+            background-color: var(--bg-olive-velvet);
+            border: 1px solid rgba(205, 177, 127, 0.15);
+            padding: 50px 40px;
+            border-radius: 4px;
+            text-align: center;
+            transition: var(--transition-luxury);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .party-card:hover {
+            border-color: var(--champagne-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+        .party-img-container {
+            width: 200px;
+            height: 270px;
+            margin: 0 auto 30px auto;
+            border-radius: 100px 100px 0 0; /* Arched portraits */
+            overflow: hidden;
+            border: 1px solid var(--champagne-gold);
+            position: relative;
+            background: var(--bg-deep-forest);
+        }
+        .party-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s ease;
+            display: block;
+        }
+        .party-card:hover .party-img-container img {
+            transform: scale(1.1);
+        }
+        .party-role {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--champagne-gold);
+            margin-bottom: 10px;
+        }
+        .party-name {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        .party-quote {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text-silver-sage);
+            line-height: 1.6;
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 6: GUEST LOGISTICS
+        ------------------------------------------------------------- */
+        .logistics-section {
+            background-color: var(--bg-olive-velvet);
+            padding: 140px 10%;
+            border-top: 1px solid rgba(99, 127, 93, 0.15);
+            border-bottom: 1px solid rgba(99, 127, 93, 0.15);
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto 0 auto;
+        }
+        .logistic-card {
+            background-color: var(--bg-deep-forest);
+            padding: 60px 40px;
+            border-radius: 4px;
+            text-align: center;
+            border-top: 3px solid var(--olive-accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: var(--transition-luxury);
+        }
+        .logistic-card:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--champagne-gold);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+        .logistic-icon {
+            font-size: 2.2rem;
+            color: var(--champagne-gold);
+            margin-bottom: 25px;
+        }
+        .logistic-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        .logistic-text {
+            color: var(--text-silver-sage);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        /* -------------------------------------------------------------
+           SECTION 7: PREMIUM INTERACTIVE RSVP FORM
+        ------------------------------------------------------------- */
+        .rsvp-section {
+            padding: 140px 10%;
+        }
+        .rsvp-form-wrapper {
+            max-width: 750px;
+            margin: 50px auto 0 auto;
+            background: rgba(28, 38, 27, 0.55);
+            border: 1px solid rgba(205, 177, 127, 0.2);
+            padding: 70px 60px;
+            border-radius: 4px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+        .rsvp-message {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .rsvp-message p {
+            color: var(--text-silver-sage);
+            font-size: 1rem;
+            margin-top: 15px;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 14px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(205, 177, 127, 0.3);
+            color: var(--text-pure);
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            transition: var(--transition-luxury);
+        }
+        .form-input:focus {
+            outline: none;
+            border-bottom-color: var(--champagne-gold);
+        }
+        .input-label {
+            position: absolute;
+            top: 14px;
+            left: 0;
+            color: var(--text-silver-sage);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            pointer-events: none;
+            transition: var(--transition-luxury);
+        }
+        /* Float labels on user input activities */
+        .form-input:focus ~ .input-label,
+        .form-input:not(:placeholder-shown) ~ .input-label {
+            top: -18px;
+            font-size: 0.75rem;
+            color: var(--champagne-gold);
+        }
+        
+        .rsvp-radio-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-silver-sage);
+            margin-bottom: 20px;
+        }
+        .rsvp-options-grid {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .radio-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .radio-container input {
+            accent-color: var(--champagne-gold);
+            width: 20px;
+            height: 20px;
+        }
+
+        /* -------------------------------------------------------------
+           PREMIUM DYNAMIC LIGHTBOX OVERLAY FOR GALLERY
+        ------------------------------------------------------------- */
+        #lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(14, 22, 13, 0.96);
+            backdrop-filter: blur(15px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #lightbox-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-container {
+            position: relative;
+            max-width: 85%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+            border: 2px solid var(--champagne-gold);
+            border-radius: 4px;
+            box-shadow: 0 35px 70px rgba(0,0,0,0.8);
+        }
+        .lightbox-caption {
+            margin-top: 20px;
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--champagne-gold);
+            letter-spacing: 1px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: none;
+            border: none;
+            color: var(--text-pure);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition-luxury);
+        }
+        .lightbox-close:hover {
+            color: var(--champagne-gold);
+            transform: scale(1.1);
+        }
+
+        /* -------------------------------------------------------------
+           MODAL CONFIRMATION DIALOG (RSVP SUCCESS OVERLAY)
+        ------------------------------------------------------------- */
+        #success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(14, 22, 13, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 100000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: var(--bg-olive-velvet);
+            border: 1.5px solid var(--champagne-gold);
+            padding: 60px 50px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border-radius: 4px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+            transform: scale(0.85);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #success-modal.active {
+            display: flex;
+        }
+        #success-modal.active .modal-content {
+            transform: scale(1);
+        }
+        .modal-crest {
+            font-family: var(--font-luxury);
+            font-size: 3rem;
+            color: var(--champagne-gold);
+            margin-bottom: 25px;
+        }
+        .modal-title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        .modal-body {
+            color: var(--text-silver-sage);
+            font-size: 1rem;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        /* -------------------------------------------------------------
+           RESPONSIVE STYLE WRAPPERS
+        ------------------------------------------------------------- */
+        @media(max-width: 1024px) {
+            .premium-nav { padding: 25px 40px; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .hero-image-frame { display: none; } /* Kept visually uncluttered on tablets */
+            .hero-text-container { display: flex; flex-direction: column; align-items: center; }
+            .hero-details { border-left: none; padding-left: 0; border-top: 1px solid var(--champagne-gold); padding-top: 15px; }
+            .editorial-grid { gap: 30px; }
+            .cell-card-1, .cell-card-2, .cell-card-3, .cell-img-1, .cell-img-2, .cell-img-3 { grid-column: span 12; }
+            .cell-img-1, .cell-img-2, .cell-img-3 { height: 350px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item.wide { grid-column: span 2; }
+            .gallery-item.tall { grid-row: span 1; height: 380px; }
+            .party-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+        @media(max-width: 768px) {
+            .premium-nav { padding: 20px; }
+            .nav-menu { display: none; } /* Editorial layouts prefer pure clean headers when space constraints hit */
+            section { padding: 80px 20px; }
+            .rsvp-form-wrapper { padding: 40px 25px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item.wide, .gallery-item.tall { grid-column: span 1; height: 320px; }
+            .gallery-item { height: 320px; }
+        }
+
+        /* -------------------------------------------------------------
+           KEYFRAMES ARCHITECTURE
+        ------------------------------------------------------------- */
+        @keyframes luxeFadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes archwayReveal {
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="custom-cursor"></div>
+    <div id="custom-cursor-follower"></div>
+
+    <canvas id="ambient-canvas"></canvas>
+
+    <nav class="premium-nav">
+        <a href="#" class="nav-logo hover-glow">S & J</a>
+        <ul class="nav-menu">
+            <li><a href="#story" class="nav-link hover-glow">Our Covenant</a></li>
+            <li><a href="#celebration" class="nav-link hover-glow">Chronology</a></li>
+            <li><a href="#gallery" class="nav-link hover-glow">Gallery</a></li>
+            <li><a href="#party" class="nav-link hover-glow">The Circle</a></li>
+            <li><a href="#logistics" class="nav-link hover-glow">Logistics</a></li>
+            <li><a href="#rsvp" class="nav-link hover-glow">RSVP</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section" id="home">
+        <div class="hero-grid">
+            <div class="hero-text-container">
+                <p class="hero-tagline">To Have and To Hold</p>
+                <h1 class="hero-names">Sophia <br><span>&</span> Julian</h1>
+                <p class="hero-details">10 . 17 . 2026 — The Olive Valley Woodlands</p>
+                <a href="#rsvp" class="btn-luxury-outline hover-glow">Seal Your Presence</a>
+            </div>
+            <div class="hero-image-frame hover-glow" id="parallax-frame">
+                <img id="parallax-img" class="hero-image" src="https://images.pexels.com/photos/37141737/pexels-photo-37141737.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200" alt="Elegant wedding couple posing outdoors in a romantic countryside setting">
+                <div class="hero-image-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="narrative-section reveal" id="story">
+        <div class="narrative-container">
+            <div class="narrative-crest">❦</div>
+            <h2 class="narrative-poetry">
+                "In the quiet of the grove, our roots quietly bound together under the green boughs... growing taller, sturdier, and infinitely more complete."
+            </h2>
+            <p class="narrative-subtext">
+                For six autumns we have walked beside the river paths, building our dream in silent whispers. We invite you to venture out beneath the ancient olive branches as we declare our lifetimes merged in wild, joyful devotion.
+            </p>
+        </div>
+    </section>
+
+    <section class="chronology-section" id="celebration">
+        <div class="section-header reveal">
+            <h2 class="section-title">The <span>Chronology</span></h2>
+            <p class="section-subtitle">How our celebration unfolds</p>
+            <div class="section-separator"></div>
+        </div>
+
+        <div class="editorial-grid">
+            <div class="event-card cell-card-1 reveal">
+                <p class="event-time">04:30 PM</p>
+                <h3 class="event-title">The Meadow Promises</h3>
+                <p class="event-details">Settle on our hand-hewn oak benches under the old canopy. We pledge our vows at the peak of the golden hour as the birds sing down the day.</p>
+            </div>
+            <div class="cell-img-1 editorial-image-box hover-glow reveal">
+                <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQofHEoRd7CnFhN42MkTCab5lzvjs_Ahzoqu_nBVCmdoSbMhGyjCa50xOBQ3Zorpx-h_t15FtoNCUAhg_Q" alt="Beautiful wooden rustic outdoor wedding altar decorated with white flowers and drapery">
+            </div>
+
+            <div class="cell-img-2 editorial-image-box hover-glow reveal">
+                <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=1000&auto=format&fit=crop" alt="Outdoor elegant dinner table dressed with deep green garlands under twinkling lights">
+            </div>
+            <div class="event-card cell-card-2 reveal">
+                <p class="event-time">06:30 PM</p>
+                <h3 class="event-title">Woodland Feast</h3>
+                <p class="event-details">Under a canopy of shimmering micro-lights, dine with us at long banquet boards draped in deep olive cedar boughs. Organic wines and local seasonal harvests flow throughout.</p>
+            </div>
+
+            <div class="event-card cell-card-3 reveal">
+                <p class="event-time">09:00 PM</p>
+                <h3 class="event-title">Moonlight Echoes</h3>
+                <p class="event-details">Dancing barefoot on smooth stones to an acoustic soul band, wrapping the night in cozy fireside memories and shared stardust laughter.</p>
+            </div>
+            <div class="cell-img-3 editorial-image-box hover-glow reveal">
+                <img src="https://images.pexels.com/photos/19950472/pexels-photo-19950472.jpeg?q=80&w=1000&auto=format&fit=crop" alt="Bride and groom standing together during an elegant countryside wedding" />
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+        <div class="section-header reveal">
+            <h2 class="section-title">The <span>Gallery</span></h2>
+            <p class="section-subtitle">Flashes of our sweet journey</p>
+            <div class="section-separator"></div>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item tall hover-glow reveal" onclick="openLightbox(this)">
+                <img src="https://images.pexels.com/photos/11600628/pexels-photo-11600628.jpeg?q=80&w=800&auto=format&fit=crop" alt="The early moments in the natural light">
+                <div class="gallery-overlay">
+                    <span class="gallery-overlay-title">First Light</span>
+                    <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                </div>
+            </div>
+
+            <div class="gallery-item hover-glow reveal" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop" alt="Our promises wrapped in delicate gold bands and green leaves">
+                <div class="gallery-overlay">
+                    <span class="gallery-overlay-title">Quiet Details</span>
+                    <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                </div>
+            </div>
+
+            <div class="gallery-item hover-glow reveal" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=800&auto=format&fit=crop" alt="Elegant minimal table setting dressed in matching olive tones">
+                <div class="gallery-overlay">
+                    <span class="gallery-overlay-title">The Setting</span>
+                    <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                </div>
+            </div>
+
+            <div class="gallery-item wide hover-glow reveal" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop" alt="Banquet setup awaiting our gorgeous company">
+                <div class="gallery-overlay">
+                    <span class="gallery-overlay-title">The Reception Hall</span>
+                    <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                </div>
+            </div>
+
+            <div class="gallery-item hover-glow reveal" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=800&auto=format&fit=crop" alt="Whispers shared under the setting sun">
+                <div class="gallery-overlay">
+                    <span class="gallery-overlay-title">True Harmony</span>
+                    <i class="fa-solid fa-expand gallery-overlay-icon"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="party-section" id="party">
+        <div class="section-header reveal">
+            <h2 class="section-title">The <span>Covenant Circle</span></h2>
+            <p class="section-subtitle">Standing alongside our hearts</p>
+            <div class="section-separator"></div>
+        </div>
+
+        <div class="party-grid">
+            <div class="party-card hover-glow reveal">
+                <div class="party-img-container">
+                    <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSO59MUklEYKsNymuZTV6rxLfeYYlf8WO114UNBj9ULZue_g_CmIg4dS7F_J8015bFhcOood0s-9Vj0icQ" alt="Elena Rosewood Maid of Honor portrait">
+                </div>
+                <p class="party-role">Maid of Honor</p>
+                <h3 class="party-name">Elena Rosewood</h3>
+                <p class="party-quote">"Sophia has been my compass since the playground days. Watching her find her forever counterpart in Julian has been the greatest gift of my adulthood."</p>
+            </div>
+
+            <div class="party-card hover-glow reveal">
+                <div class="party-img-container">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop" alt="Marcus Vance Best Man portrait">
+                </div>
+                <p class="party-role">Best Man</p>
+                <h3 class="party-name">Marcus Vance</h3>
+                <p class="party-quote">"Julian and I learned what brotherhood means out on the high mountain ranges. To see him walk toward this new path of deep love makes me unbelievably proud."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="logistics-section" id="logistics">
+        <div class="section-header reveal">
+            <h2 class="section-title">Travel <span>Guides</span></h2>
+            <p class="section-subtitle">Assisting your travel to our forest sanctuary</p>
+            <div class="section-separator"></div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="logistic-card hover-glow reveal">
+                <div class="logistic-icon"><i class="fa-solid fa-compass"></i></div>
+                <h3 class="logistic-title">The Sanctuary</h3>
+                <p class="logistic-text">Located deeply in the valley hills. Direct private bus routes depart from the primary airport terminal on Friday afternoon directly to the main grove gates.</p>
+            </div>
+
+            <div class="logistic-card hover-glow reveal">
+                <div class="logistic-icon"><i class="fa-solid fa-bed"></i></div>
+                <h3 class="logistic-title">Luxury Treehouses</h3>
+                <p class="logistic-text">We have completely booked out the sanctuary's cedar cabins and canopy rooms for our guests. Reach out to coordinate your room assignment details.</p>
+            </div>
+
+            <div class="logistic-card hover-glow reveal">
+                <div class="logistic-icon"><i class="fa-solid fa-palette"></i></div>
+                <h3 class="logistic-title">Attire Palette</h3>
+                <p class="logistic-text">Dress in formal rustic nature: olive greens, deep velvets, rich golds, and crisp whites. We suggest sensible flat footwear for paths under the trees.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="rsvp-section" id="rsvp">
+        <div class="section-header reveal">
+            <h2 class="section-title">The <span>Vow Seal</span></h2>
+            <p class="section-subtitle">Please respond before August 15, 2026</p>
+            <div class="section-separator"></div>
+        </div>
+
+        <div class="rsvp-form-wrapper reveal">
+            <div class="rsvp-message">
+                <p>We await your confirmation beneath the green boughs.</p>
+            </div>
+
+            <form id="rsvp-wedding-form" onsubmit="submitRsvp(event)">
+                <div class="input-group">
+                    <input type="text" id="fullname" class="form-input hover-glow" placeholder=" " required>
+                    <label for="fullname" class="input-label">Your Full Name</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" class="form-input hover-glow" placeholder=" " required>
+                    <label for="email" class="input-label">Email Address</label>
+                </div>
+
+                <p class="rsvp-radio-title">Will you share our woodland horizon?</p>
+                <div class="rsvp-options-grid">
+                    <label class="radio-container hover-glow">
+                        <input type="radio" name="attending" value="yes" checked>
+                        <span>Yes, I will attend</span>
+                    </label>
+                    <label class="radio-container hover-glow">
+                        <input type="radio" name="attending" value="no">
+                        <span>Regretfully, I cannot</span>
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="diet" class="form-input hover-glow" placeholder=" ">
+                    <label for="diet" class="input-label">Dietary Preferences or Allergies</label>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <button type="submit" class="btn-luxury-outline hover-glow">Seal RSVP Seat</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <div id="lightbox-overlay" onclick="closeLightbox()">
+        <div class="lightbox-container" onclick="event.stopPropagation()">
+            <button class="lightbox-close hover-glow" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+            <img id="lightbox-main-img" class="lightbox-img" src="" alt="Active fullscreen gallery focus element">
+            <p id="lightbox-main-caption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <div id="success-modal">
+        <div class="modal-content">
+            <div class="modal-crest">❦</div>
+            <h4 class="modal-title">Attendance Confirmed</h4>
+            <p id="modal-response-msg" class="modal-body">Your place at the long banquet boards beneath the olive boughs has been lovingly prepared. We cannot wait to share the sunset vows with you!</p>
+            <button class="btn-luxury-outline hover-glow" onclick="closeSuccessModal()">Return to Invitation</button>
+        </div>
+    </div>
+
+    <script>
+        // 1. DYNAMIC DESKTOP CUSTOM MOUSE CURSOR TRAIL
+        const cursorDot = document.getElementById('custom-cursor');
+        const cursorFollower = document.getElementById('custom-cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursorDot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+            setTimeout(() => {
+                cursorFollower.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+            }, 60);
+        });
+
+        // 2. HERO PARALLAX MOUSE INTERACTIONS
+        const parallaxFrame = document.getElementById('parallax-frame');
+        const parallaxImg = document.getElementById('parallax-img');
+
+        if (window.innerWidth > 1024) {
+            parallaxFrame.addEventListener('mousemove', (e) => {
+                const rect = parallaxFrame.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                parallaxImg.style.transform = `translate3d(${x * 0.12}px, ${y * 0.12}px, 0) scale(1.08)`;
+            });
+
+            parallaxFrame.addEventListener('mouseleave', () => {
+                parallaxImg.style.transform = `translate3d(0px, 0px, 0) scale(1.05)`;
+            });
+        }
+
+        // 3. INTERACTION OBSERVER (FADE-REVEALS ON SCROLL ENGINE)
+        const revealArray = document.querySelectorAll('.reveal');
+        const obsOptions = { threshold: 0.15 };
+
+        const revealObs = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, obsOptions);
+
+        revealArray.forEach(el => revealObs.observe(el));
+
+        // 4. NAVIGATION SCROLL CONTROL (ADDS SOLID SHADOW AS GUEST SCROLLS)
+        const navbar = document.querySelector('.premium-nav');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 5. EDITORIAL IMMERSIVE LIGHTBOX LOGIC
+        const lightbox = document.getElementById('lightbox-overlay');
+        const lightboxImg = document.getElementById('lightbox-main-img');
+        const lightboxCap = document.getElementById('lightbox-main-caption');
+
+        function openLightbox(element) {
+            const clickedImg = element.querySelector('img');
+            lightboxImg.src = clickedImg.src;
+            lightboxCap.textContent = clickedImg.alt;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+        }
+
+        // 6. HIGH-END RSVP FORM SUBMISSION AND MODAL REVEAL
+        const modal = document.getElementById('success-modal');
+        const rsvpForm = document.getElementById('rsvp-wedding-form');
+        const modalMsg = document.getElementById('modal-response-msg');
+
+        function submitRsvp(event) {
+            event.preventDefault();
+            const guestName = document.getElementById('fullname').value;
+            const attendRadio = document.querySelector('input[name="attending"]:checked').value;
+
+            if (attendRadio === "yes") {
+                modalMsg.textContent = `Dear ${guestName}, your place at the long banquet boards beneath the olive boughs has been lovingly prepared. We cannot wait to toast together as dusk rolls down the valley!`;
+            } else {
+                modalMsg.textContent = `Dear ${guestName}, though our paths will not meet at the woodland edge on this day, your love and spirit walk with us down our forever journey. Thank you for your warm thoughts.`;
+            }
+
+            modal.classList.add('active');
+            rsvpForm.reset();
+        }
+
+        function closeSuccessModal() {
+            modal.classList.remove('active');
+        }
+
+        // 7. LUXURIOUS FLUID CANVAS BOTANICAL PETALS
+        const petalCanvas = document.getElementById('ambient-canvas');
+        const petalCtx = petalCanvas.getContext('2d');
+        let petalCollection = [];
+
+        function configureCanvasSize() {
+            petalCanvas.width = window.innerWidth;
+            petalCanvas.height = window.innerHeight;
+        }
+        configureCanvasSize();
+        window.addEventListener('resize', configureCanvasSize);
+
+        class SoftPetal {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * petalCanvas.height;
+            }
+            reset() {
+                this.x = Math.random() * petalCanvas.width;
+                this.y = -30;
+                this.radiusX = Math.random() * 4 + 2; 
+                this.radiusY = this.radiusX * 1.8;
+                this.windPower = Math.random() * 0.4 - 0.2;
+                this.driftSpeed = Math.random() * 0.35 + 0.15;
+                this.rotation = Math.random() * 360;
+                this.spinFactor = Math.random() * 0.4 - 0.2;
+                this.alpha = Math.random() * 0.2 + 0.08;
+            }
+            swim() {
+                this.y += this.driftSpeed;
+                this.x += this.windPower;
+                this.rotation += this.spinFactor;
+
+                if (this.y > petalCanvas.height + 20) {
+                    this.reset();
+                }
+            }
+            paint() {
+                petalCtx.save();
+                petalCtx.translate(this.x, this.y);
+                petalCtx.rotate((this.rotation * Math.PI) / 180);
+                petalCtx.beginPath();
+                petalCtx.fillStyle = `rgba(205, 177, 127, ${this.alpha})`; /* Pale gold soft dust floating */
+                petalCtx.ellipse(0, 0, this.radiusX, this.radiusY, 0, 0, Math.PI * 2);
+                petalCtx.fill();
+                petalCtx.restore();
+            }
+        }
+
+        function preparePetalLoop() {
+            for (let i = 0; i < 40; i++) {
+                petalCollection.push(new SoftPetal());
+            }
+        }
+
+        function runPetalLoop() {
+            petalCtx.clearRect(0, 0, petalCanvas.width, petalCanvas.height);
+            petalCollection.forEach(p => {
+                p.swim();
+                p.paint();
+            });
+            requestAnimationFrame(runPetalLoop);
+        }
+
+        preparePetalLoop();
+        runPetalLoop();
+    </script>
+</body>
+</html>
